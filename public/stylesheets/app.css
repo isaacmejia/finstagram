@@ -1,6 +1,9 @@
 header {
     background-color: #244751;
     color: #E8FDFF;
+    height: auto;
+    display: flex;
+    align-items: center;
 }
 
 body {
@@ -32,4 +35,19 @@ a.photo {
 
 .user-info h2, h3 {
     font-weight: 300;
+}
+
+.login-info > * {
+    margin-left: 10px;
+}
+
+.login-info {
+    display: flex;
+    align-items: center;
+}
+
+.login-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
 }

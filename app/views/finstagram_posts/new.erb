@@ -1,10 +1,10 @@
-<h2>New Post</h2>
-
 <ul class="errors">
   <% @finstagram_post.errors.full_messages.each do |message| %>
     <li><%= message %></li>
   <% end %>
 </ul>
+
+<img id="preview" src="" style="display: none; width: 200px;">
 
 <form action="/finstagram_posts" method="POST">
   <div class="form-group">
@@ -15,3 +15,23 @@
     <button class="button" type="submit">Post</button>
   </div>
 </form>
+
+<script>
+$(document).ready(function() {
+
+  // 1. listen for the blur event on the element with a id of 'photo_url'
+  $("#photo_url").on("blur", function(event) {
+    // 2. get the value from the input
+    var photoUrl = event.target.value;
+    var preview = $("#preview");
+
+    // 3. set that value as the img src attr
+    if(photoUrl) {
+      preview.attr("src", photoUrl);
+      preview.show();
+    } else {
+      preview.hide();
+    }
+  });
+});
+</script>

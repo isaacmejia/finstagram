@@ -10,46 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2023_02_28_155309) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-  enable_extension "timescaledb"
-
-  create_table "comments", id: :serial, force: :cascade do |t|
+  create_table "comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "finstagram_post_id"
     t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["finstagram_post_id"], name: "index_comments_on_finstagram_post_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "finstagram_posts", id: :serial, force: :cascade do |t|
+  create_table "finstagram_posts", force: :cascade do |t|
     t.integer "user_id"
     t.string "photo_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_finstagram_posts_on_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "likes", id: :serial, force: :cascade do |t|
+  create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "finstagram_post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["finstagram_post_id"], name: "index_likes_on_finstagram_post_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "avatar_url"
     t.string "email"
-    t.string "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

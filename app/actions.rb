@@ -103,7 +103,7 @@ post '/login' do
 
   @user = User.find_by(username: username)
 
-  if @user && @user.authenticate(password) == password
+  if @user && @user.authenticate(password)
     session[:user_id] = @user.id
     redirect to('/')
   else

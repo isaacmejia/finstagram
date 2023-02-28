@@ -75,8 +75,6 @@ post '/signup' do
   username = params[:username]
   password = params[:password]
 
-
-
   @user = User.new({email: email, avatar_url: avatar_url, username: username, password: password})
   if  @user.save
 
@@ -110,7 +108,7 @@ post '/login' do
     @error_message = "Login failed."
     erb(:login)
   end
-  
+
 end
 
 get '/logout' do
